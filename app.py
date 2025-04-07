@@ -8,9 +8,13 @@ def index():
 
 @app.route('/submittodoitem', methods=['POST'])
 def submit_todo():
+
     itemName = request.form.get('itemName')
+
     itemDescription = request.form.get('itemDescription')
+
     return f"Received: {itemName}, {itemDescription}"
+
 
 @app.route('/api', methods=['GET'])
 def get_data():
@@ -18,6 +22,7 @@ def get_data():
         data = file.read()
         data=data.split()
     return jsonify(data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
